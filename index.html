@@ -30,6 +30,7 @@
                             <option value="car">Car - ₹60/hour</option>
                             <option value="bike">Bike - ₹30/hour</option>
                             <option value="truck">Truck/Bus - ₹100/hour</option>
+                            <option value="charging">Charging - ₹300/hour</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -70,6 +71,28 @@
                     <button class="btn btn-print-small" onclick="document.getElementById('importData').click()">📥 Import Data</button>
                     <button class="btn btn-print-small" onclick="showAnalytics()">📈 View Analytics</button>
                     <button class="btn btn-checkout btn-print-small" onclick="resetParkingSystem()">🗑️ Reset System</button>
+                </div>
+
+                <div class="section">
+                    <h3>🔌 Electric Vehicle Charging Station</h3>
+                    <div class="form-group">
+                        <label for="carNumberEV">Car Number Plate:</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input id="carNumberEV" type="text" placeholder="e.g., MH02FM1234" style="flex: 1;">
+                            <button id="scanPlateEV" class="btn" style="padding: 12px; font-size: 16px;">📷 Scan</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="durationEV">Duration to Charge (hours):</label>
+                        <input id="durationEV" type="number" min="1" value="1" oninput="updateChargingCost()">
+                    </div>
+                    <div class="form-group">
+                        <label for="startTimeEV">Start Time:</label>
+                        <input id="startTimeEV" type="datetime-local">
+                    </div>
+                    <p id="chargingCostDisplay">Cost: ₹0</p>
+                    <button class="btn" onclick="chargeEV()">⚡ Charge Vehicle</button>
+                    <div id="chargingReceiptContainer"></div>
                 </div>
 
                 <div class="section">
